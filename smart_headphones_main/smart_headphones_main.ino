@@ -2,12 +2,7 @@
 #include <Adafruit_Sensor.h>
 #include <Adafruit_BME280.h>
 
-
-#define BME_SCK 13
-#define BME_MISO 12
-#define BME_MOSI 11
-#define BME_CS 10
-#define SEALEVELPRESSURE_HPA (1013.25)
+//#define SEALEVELPRESSURE_HPA (1013.25)
 Adafruit_BME280 bme; // I2C
 
 const int MPU_addr=0x68;  // I2C address of the MPU-6050 Gyro Accellerometer
@@ -43,18 +38,19 @@ void getBME280(){
   Serial.print(bme.readTemperature());
   Serial.println(" *C");
 
-  Serial.print("Pressure = ");
-
-  Serial.print(bme.readPressure() / 100.0F);
-  Serial.println(" hPa");
-
-  Serial.print("Approx. Altitude = ");
-  Serial.print(bme.readAltitude(SEALEVELPRESSURE_HPA));
-  Serial.println(" m");
-
   Serial.print("Humidity = ");
   Serial.print(bme.readHumidity());
   Serial.println(" %");
+
+
+  //Serial.print("Pressure = ");
+
+  //Serial.print(bme.readPressure() / 100.0F);
+  //Serial.println(" hPa");
+
+  //Serial.print("Approx. Altitude = ");
+  //Serial.print(bme.readAltitude(SEALEVELPRESSURE_HPA));
+  //Serial.println(" m");
 
   Serial.println();
 }
